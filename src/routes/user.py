@@ -4,7 +4,7 @@ from flask_restful import Resource
 from flask import request, send_file, current_app, jsonify, send_from_directory
 import json
 import requests
-from src.utils import db_query, helper
+from src.utils import db_query
 from src.app import app_config
 from src.app.schema import PayloadValidate
 from marshmallow import ValidationError
@@ -31,19 +31,7 @@ class ScanQr(Resource):
 
     def get(self):
         try:
-            data = helper.video_reader()
-            print("data from post", data)
-            if data:
-                id_number = data
-                # response = {'message': 'QR code scanned sucessfully!'}
-                details = qud.get_user_details(id_number)
-
-                if details['user_active']:
-                    return {'message': 'User already entered!'}
-                else:
-                    return {'message': 'Entry Allowed'}
-                    data['user_active'] = True
-                    qud.update_user_details(data)
+            pass
 
         except Exception as e:
             print(e)
