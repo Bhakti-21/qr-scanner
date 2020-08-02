@@ -8,7 +8,7 @@ from src.utils import db_query
 from src.app import app_config
 from src.app.schema import PayloadValidate
 from marshmallow import ValidationError
-from authentication import auth
+from src.authentication import auth
 from sqlalchemy.exc import IntegrityError, InvalidRequestError, SQLAlchemyError
 
 
