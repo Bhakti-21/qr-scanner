@@ -4,6 +4,8 @@ from flask_restful import Resource
 from flask import request, send_file, current_app, jsonify, send_from_directory
 import json
 import requests
+import base64
+
 from src.utils import db_query
 from src.app import app_config
 from src.app.schema import PayloadValidate
@@ -82,6 +84,7 @@ class User(Resource):
 
             if image:
                 print("image", image)
+                print("image", type(image))
                 print("image mimetype", image.mimetype)
                 if image.mimetype in config.ALLOWED_MIMETYPES:
                     upload_folder = config.UPLOAD_FOLDER
@@ -90,19 +93,15 @@ class User(Resource):
                         print("id_number", id_number)
                         directory = f'{upload_folder}'
 
-                        if not os.path.exists(directory):
-                            os.makedirs(directory,mode=0o777)
+                        print(image.read())
+                        image = base64.b64encode(image.read())
+                        print("image ", image)
+
+                        # print("os.path.join(directory, id_number + extension)",
+                        #       os.path.join(directory, id_number + extension))
 
 
-                        print("os.path.join(directory, id_number + extension)",
-                              os.path.join(directory, id_number + extension))
-
-                        image.save(
-                            os.path.join(directory, id_number + extension)
-                        )
-
-                        json_data['image_url'] = os.path.join(
-                            directory, id_number)
+                        json_data['image_url'] = image
                         print("json_data['image_url']", json_data['image_url'])
 
                 else:
