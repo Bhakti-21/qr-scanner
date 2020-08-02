@@ -93,14 +93,15 @@ class User(Resource):
                         print("id_number", id_number)
                         directory = f'{upload_folder}'
 
-                        image = base64.b64encode(image.read())
-                        print("image ", image)
+                        image_open = open(image, 'rb') #open binary file in read mode
+                        image_read = base64.b64encode(image_open.read())
+                        print("image ", image_read)
 
                         # print("os.path.join(directory, id_number + extension)",
                         #       os.path.join(directory, id_number + extension))
 
 
-                        json_data['image_url'] = image
+                        json_data['image_url'] = image_read
                         print("json_data['image_url']", json_data['image_url'])
 
                 else:
