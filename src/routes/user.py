@@ -93,7 +93,7 @@ class User(Resource):
                         print("id_number", id_number)
                         directory = f'{upload_folder}'
 
-                        image_open = open(image, 'rb') #open binary file in read mode
+                        image_open = open(image.read(), 'rb') #open binary file in read mode
                         image_read = base64.b64encode(image_open.read())
                         print("image ", image_read)
 
