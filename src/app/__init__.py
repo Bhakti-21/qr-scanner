@@ -2,9 +2,9 @@ import os
 from flask import Flask, json
 from flask_cors import CORS
 from flask_restful import Api
-from config import app_config
-from routes.user import User, Hello, ScanQr, MediaDownload
-from routes.token import Token
+from src.config import app_config
+from src.routes.user import User, Hello, ScanQr, MediaDownload
+from src.routes.token import Token
 
 
 app = Flask(__name__)

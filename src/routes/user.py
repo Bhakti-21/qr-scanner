@@ -4,9 +4,9 @@ from flask_restful import Resource
 from flask import request, send_file, current_app, jsonify, send_from_directory
 import json
 import requests
-from utils import db_query, helper
-from app import app_config
-from app.schema import PayloadValidate
+from src.utils import db_query, helper
+from src.app import app_config
+from src.app.schema import PayloadValidate
 from marshmallow import ValidationError
 from authentication import auth
 from sqlalchemy.exc import IntegrityError, InvalidRequestError, SQLAlchemyError
