@@ -91,7 +91,8 @@ class User(Resource):
                         directory = f'{upload_folder}'
 
                         if not os.path.exists(directory):
-                            os.makedirs(directory)
+                            os.makedirs(directory,mode=0o777)
+
 
                         print("os.path.join(directory, id_number + extension)",
                               os.path.join(directory, id_number + extension))
