@@ -1,11 +1,11 @@
 import os
-from src.app import create_app
-from src.config import app_config
+from app import create_app
+from config import app_config
 
 
 from flask import Flask
 from flask_restful import Resource, request, Api
-from src.routes.user import User
+from routes.user import User
 
 
 app_env = os.environ.get('ENV','development')
