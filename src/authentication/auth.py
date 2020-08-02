@@ -2,7 +2,7 @@ import json
 import jwt
 import requests
 from flask import request
-from utils import db_query
+from src.utils import db_query
 
 qud = db_query.Query()
 
