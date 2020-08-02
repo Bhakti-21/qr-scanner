@@ -93,7 +93,6 @@ class User(Resource):
                         print("id_number", id_number)
                         directory = f'{upload_folder}'
 
-                        print(image.read())
                         image = base64.b64encode(image.read())
                         print("image ", image)
 
