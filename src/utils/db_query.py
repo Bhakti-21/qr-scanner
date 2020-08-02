@@ -2,9 +2,9 @@ import os
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from app import models
-from app.models import UserDetails, Base
-from app import app_config
+from src.app import models
+from src.app.models import UserDetails, Base
+from src.app import app_config
 from sqlalchemy.exc import IntegrityError, InvalidRequestError, SQLAlchemyError
 
 app_env = os.environ.get('ENV', 'development')
